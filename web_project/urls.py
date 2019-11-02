@@ -20,5 +20,5 @@ from django.urls import include, path
 #     path('admin/', admin.site.urls),
 # # # ]
 urlpatterns = [
-    path("", include("mermer_frontend.urls")),
-]
+    path('/mermer_frontend', include("mermer_frontend.urls")),
+] 

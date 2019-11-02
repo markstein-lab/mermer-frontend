@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<style>
+.restrictions-content {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    max-height: 0;
+    overflow:hidden;
+}
+input:checked ~ .restrictions-content {
+    max-height: 100%;
+}
+textarea {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.restrictions{
+    text-align:center;
+}
+.input {
+    display: inline-block;
+    text-align:center;
+    width: 150%;
+
+}
+.genomes {
+    text-align:center;
+}
+
+</style>
+<body>
+<p>
+
+<img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" alt="marksteinlab.org" style="float:left;width:100px;height:100px">
+<img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" alt="marksteinlab.org" style="float:right;width:100px;height:100px">
+<h1 style ="text-align:center"> MERMER </h1>
+</p>
+<form>
+<fieldset>
+<p>
+    
+    <h5 style = "text-align:center"> Input Sequences</h5>
+    <textarea>  </textarea>
+
+</p>
+<input list="genomes" name="genome">
+<datalist id="genomes">
+    <option value="Drosophila Melanogaster">
+    <option value = "Homo Sapiens">
+    <option value = "Mus Muculus"> 
+    <option value = "Saccharomyces cerevisae">
+    <option value = "Escherichia coli">
+    <option value = "C. elegans">
+    <option value = "Arabidopsis thaliana">
+    <option value = "Danio rerio">
+    <option value = "C. merolae">
+    <option value = "New Mouse">
+    <option value = "Bombyx mori">
+    </option>
+    </option>
+    </option>
+    </option>
+    </option>
+    </option>
+    </option>
+    </option>
+    </option>   
+    </option>
+    </option>
+</datalist>
+    <input type = "submit">
+</fieldset>
+    <div class="collapsible-restrictions">
+        <input type="checkbox" name="restrictions" value="Search Restrictions">
+        <label for="restrictions"> Search Restrictions</label>
+        <div class="restrictions-content">
+        <ul>
+                5' UTRs <input type="checkbox" name="domainRestrict" value="5' UTRs" /> <br />
+                3' UTRS <input type="checkbox" name="domainRestrict" value="3' UTRs" /> <br />
+                introns <input type="checkbox" name="domainRestrict" value="introns" /> <br />
+                exons <input type="checkbox" name="domainRestrict" value="exons" /> <br />
+        </ul>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+</script>
+</form>
+
+</body>
+</html>

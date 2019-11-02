@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    
+</head>
+<body> 
+        <script src="../d3.min.js"></script>
+        <script src="index.js"></script>
+    
+<script>
+    var exon;
+    var ABCB7RATrancript = [3,"transcript",1618414, 1623413]
+    var ABCB7RAExon1 = [3, "exon", 1618414, 1618617]
+    var ABCB7RAStart =[3, "start_codon",1618501, 1618503]
+    var ABCB7RAExon2 =[3, "exon", 1620428, 1620554]
+    var ABCB7RAExon3 = [3, "exon", 1620817, 1621042]
+    // write your d3 code here..  
+            d3.select('svg')
+                .append('line')
+                    .attr('x1', 0)
+                    .attr('y1', 1500)
+                    .attr('x2',49999)
+                    .attr('y2',1500)
+                    .style('stroke', 'black')
+                    .style('stroke-width', 1)
+            
+            d3.select('svg')
+                .append('rect')
+                    .attr('height', 100)
+                    .attr('width', 116)
+                    .attr('x', 0)
+                    .attr('y', 1450)
+                    .style('fill', 'black')
+                    .style('stroke', 'black')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height',100)
+                    .attr('width', 2)
+                    .attr('x',0 )
+                    .attr('y', 1450)
+                    .style('fill', 'green')
+                    .style('stroke', 'green')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height', 100)
+                    .attr('width',126 )
+                    .attr('x', 1927)
+                    .attr('y', 1450)
+                    .style('fill', 'black')
+                    .style('stroke', 'black')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height', 100)
+                    .attr('width',225)
+                    .attr('x',2190 )
+                    .attr('y', 1450)
+                    .style('fill', 'black')
+                    .style('stroke', 'black')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height', 100)
+                    .attr('width', 154 )
+                    .attr('x', 2251 )
+                    .attr('y', 1450)
+                    .style('fill', 'black')
+                    .style('stroke', 'black')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height',100)
+                    .attr('width', 1348)
+                    .attr('x', 2465)
+                    .attr('y',1450)
+                    .style('fill', 'black')
+                    .style('stroke', 'black')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height',100)
+                    .attr('width', 254)
+                    .attr('x', 3880) 
+                    .attr('y',1450)
+                    .style('fill', 'black')
+                    .style('stroke', 'black')
+                    .style('stroke-width',10)
+            d3.select('svg')
+                .append('rect')
+                    .attr('height',100)
+                    .attr('width', 3)
+                    .attr('x', 4137)
+                    .attr('y',1450)
+                    .style('fill', 'red')
+                    .style('stroke', 'red')
+                    .style('stroke-width',10)
+    </script>
+</body>
+</html>
