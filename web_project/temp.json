@@ -1,0 +1,9 @@
+
+[
+	{"exonNumber": 1 ,"exonVersion": 1, "start": 1618501, "end": 1618617},
+	{"exonNumber": 2,"exonVersion": 1, "start": 1620428, "end": 1620554},
+	{"exonNumber":  3,"exonVersion": 1, "start": 1620817, "end": 1621042},
+	{"exonNumber":  4,"exonVersion": 1, "start": 1621103, "end": 1621257},
+	{"exonNumber":  5,"exonVersion": 1, "start": 1621317, "end": 1622665},
+	{"exonNumber":  6,"exonVersion": 1, "start": 1622732, "end": 1622986}
+]
