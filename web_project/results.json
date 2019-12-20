@@ -1,0 +1,27 @@
+Results{
+    Query:String; // Debate later if should include restrictions based on reproduceability -KN 
+    hits:[];
+}
+Hits {
+    position:int;
+    sequence:String;
+    gene:[]
+}    
+
+gene {
+    GeneID: string;
+    Start: int;
+    End: int;
+    Transcripts:[]
+}
+
+transcript {
+    type:string;
+    exons:[]
+}
+
+Exons {
+    start:int
+    end:int
+    exonNumber:int
+}

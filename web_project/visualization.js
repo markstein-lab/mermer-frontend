@@ -27,50 +27,19 @@ var temp = {sequences: [
       .attr('height', 10000)
       .style('border', '1px solid');
 
-  var transcripts = canva.selectAll('line')
+  var transcripts = canva.selectAll('r')
     .data(ABCB7.transcripts)
-    .enter()
-    .append('line');
+    .enter();
 
-transcripts
-        .attr('x1',0)
-        .attr('y1',function(d,i){
+    var transcriptFunction0 = d3.svg.line()
+        .x(function(d,i){ ABCB7.transcripts[0].end-ABCB7.transcripts[0].start;})
+        .y(function(d,i){
             return (50*i+100);
-        })
-        .attr('x2',function(d,i) {
-            return ABCB7.transcripts[i].end-ABCB7.transcripts[i].start;
-        })
-        .attr('y2', function(d,i) {
-            return (50*i)+100;
-        })
-        .attr('stroke-width',2)
-        .attr("stroke","black");
+        });
+    var line = canva.append("path")
+        .attr("d", transcriptFunction0(ABCB7.transcripts))
+        .attr("stroke", "blue")
+        .attr("stroke-width", 2)
+        .attr("fill", "none");
 
-
-    var exon = transcripts.selectAll('r')
-        .data(function(d,i) {
-            return ABCB7.transcripts[i].exons;
-        })
-        .enter()
-        .append('rect');
-    exon
-            .attr('x', function(d,i) {
-                return d.start - ABCB7.start;
-            })
-            .attr('y', 0)
-            .attr('height',100)
-            .attr('width',function(d,i) {
-                return d.end-d.start;
-            });
-var startCodons = transcripts.selectAll('h')
-        .data(function(d,i) {
-            return ABCB7.transcripts;
-        })
-        .enter()
-        .append('rect');
-    
-        startCodons
-            .attr('x',0)
-            .attr('height',10)
-            .attr('width',3)
-            .attr('fill','green');
+ 
