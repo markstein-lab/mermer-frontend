@@ -2,21 +2,162 @@
 <html>
 <head>
 <style>
-    table,th,td {
-        border:5px slategrey;
+        .navbar-custom {
+            background-color:rgb(229,66,67);
+            width:100000px;
+            height:100px;
+            top:-1;
+            left:0;
+            z-index: 1;
+        }
+        .navbar-custom a {
+            color:aliceblue;
+            text-align:right;
+            font-size: 50px;
+            right:0;
+            left:95%;
+        }
+        h2 {
+            color:aliceblue;
+            font-size:40px;
+        }
+        svg {
+            margin-left:220px;
+        }
+        .sidenav {
+            width: 200px; 
+            position: fixed; 
+            z-index: 1; 
+            top:200px; 
+            left: 0;
+            background-color:rgb(229,66,67); 
+            overflow-x: hidden; 
+            border: 5px solid aliceblue;
+            border-radius: 4px;
+        }
+        
+        .sidenav a, p,li{
+            font-size: 20px;
+            color: aliceblue;
+            display: block;
+        }
+        .sidenav label {
+            font-size:30px;
+            color:aliceblue;
+            
+        }
+        .main {
+           margin-left: 200px;
+           margin-top:50px;
 
-    }
+        }
+        
+        .btn-danger {
+            background-color:rgb(229,66,67);
+            border-radius:4px;
+            color:aliceblue;
+            font-size:40px;
+        }
+        .table{
+            border:5px solid rgb(229,66,67);
+            letter-spacing:1px;
+            font-size:40px;
+            text-align:center;
+        }
+        .td,th{
+            border:3px solid rgb(229,66,67);
+            width:200px;
+        }
+        .checkbox {
+            width:50px;
+            height:50px;
+        }
 </style>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 </head>
 
 <body>
-        
-  
-    </table>
-        <h3 style = "text-align:center"> Result 1: </h3>
-        <script src="visualization.js"></script>
+        <nav class="navbar navbar-custom  justify-content-center">
+                <a class="navbar-brand pull-left navbar-left" href="#">
+                        <img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" alt="marksteinlab.org" style="float:left;width:100px;height:100px">
+                </a>
+      </nav> 
+    <!-- Make toggleable later -KN 1/24 -->
+     <div class="sidenav"> 
+                        <p>Restrictions</p>
+                        <br>
+                        <input type="checkbox" name="UTR1" checked>
+                        <label for="UTR1">5' UTR</label>
+                        <br>
+                        <input type="checkbox" name="UTR2" checked>
+                        <label for="UTR2">3' UTR</label>
+                        <br>
+                        <input type="checkbox" name="CDS" checked>
+                        <label for="CDS"> CDS</label>
+                        <br>
+                        <input type="checkbox" name="Exon" checked>
+                        <label for="Exon"> Exon </label>
+                        <br>
+                        <input type="checkbox" name="Intron" checked>
+                        <label for="Intron"> Intron</label>
+                        <br>
+                        <input type="checkbox" name="intergenic" checked>
+                        <label for="intergenic">Intergenic</label>
+                        <br><br>
+                        <p>IUPAC Codes: </p>
+                        <ul>
+                            <li>A   Adenine</li>
+                            <li>C   Cytosine</li>
+                            <li>G   Guanine</li>
+                            <li>T   Thymine</li>
+                            <li>U   Uracil</li>
+                            <li>B = C|T|U|G = ~A</li>
+                            <li>D = A|T|U|G = ~C</li>
+                            <li>H = A|T|U|C = ~G</li>
+                            <li>K = T|U|G</li>
+                            <li>M = C|A</li>
+                            <li>N = A|C|G|T|U</li>
+                            <li>R = A|G</li>
+                            <li>S = C|G</li>
+                            <li>V = A|C|G = ~(T|U)</li>
+                            <li>W = T|U|A</li>
+                            <li>Y = C|T|U</li>
+                        </ul>
 
+                  </div>
+            
+          </div>
+    <div class="main">
+            <button type="button" class="btn btn-danger">Save Search</button>
+            <button type="button" class="btn btn-danger">Download Log</button>
+            <button type="button" class="btn btn-danger">Download Hits</button>
+            <br><br><br>
+            <table class="table table-bordered, style='border: 5px solid #900'">
+                <thead>
+                        <tr>
+                            <th scope="col">Sequence</th>
+                            <th scope="col">Chr. 1</th>
+                            <th scope="col">Chr. 2</th>
+                            <th scope="col">Chr. 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GAGA</td>
+                            <td> 13</td>
+                            <td> 5</td>
+                            <td>17</td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+    <div class="results">
+        <label for="gene1">Cluster 1:ABCB7</label>
+        <script src="visualization.js"></script>
+        <br><br><br>
+    </div>
 </body>
+<script>
+</script>
 </html>

@@ -7,11 +7,14 @@ Hits {
     sequence:String;
     gene:[]
 }    
-
+Summary {
+    Chr
+}
 gene {
     GeneID: string;
     Start: int;
     End: int;
+    Chromosome: string;
     Transcripts:[]
 }
 

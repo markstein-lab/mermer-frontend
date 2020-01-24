@@ -21,25 +21,81 @@ var temp = {sequences: [
   };
   
   var ABCB7 = temp.sequences[0].genes[0];
-  
+
   var canva= d3.select('body').append('svg')
-      .attr('width',10000)
-      .attr('height', 10000)
-      .style('border', '1px solid');
+      .attr('width',1000)
+      .attr('height', 75)
+      .style('border', '3px solid');
 
-  var transcripts = canva.selectAll('r')
+  var transcriptline = canva.selectAll('g')
     .data(ABCB7.transcripts)
-    .enter();
+    .enter()
+    .append('g');
+  
+  var transcripts = transcriptline.attr('transform', (d,i) => 'translate(0, '+40*i+')')
+    .append('rect')
+    .attr("x", 10)
+    .attr("y", 15)
+    .attr("width",function(d) { return d.end-d.start + 10})
+    .attr("height", 5)
+    .attr("fill","black");
 
-    var transcriptFunction0 = d3.svg.line()
-        .x(function(d,i){ ABCB7.transcripts[0].end-ABCB7.transcripts[0].start;})
-        .y(function(d,i){
-            return (50*i+100);
-        });
-    var line = canva.append("path")
-        .attr("d", transcriptFunction0(ABCB7.transcripts))
-        .attr("stroke", "blue")
-        .attr("stroke-width", 2)
-        .attr("fill", "none");
+  var transcriptName = transcriptline.append('text')
+    .attr("x",10)
+    .attr("y", 15)
+    .text(function(d) {return d.transcriptName})
+    .attr("font-size", "15px")
+    .attr("fill", "black");
+  var transcriptText = transcriptline.selectAll('g')
+    .data(ABCB7.transcripts)
+    .enter()
+    .append('g');
+  
+    
+  
+   var exons =  transcriptline.selectAll('g')
+    .data(function(d,i) { return ABCB7.transcripts[i].exons})
+    .enter()
+    .append('g');
 
- 
+  var exons2 = exons.append('rect')
+    .attr("x", function(d,i) { return 10 + d.end - d.start})
+    .attr("y",0)
+    .attr("width", function(d,i) {return 10 + d.end-d.start})
+    .attr("height", 30)
+    .attr("fill", "black");
+
+  var start = transcriptline.selectAll('g')
+    .data(function(d,i) {return ABCB7.transcripts})
+    .enter()
+    .append('g');
+
+  var startexon = start.append('rect')
+    .attr("x",function(d,i){return 10+d.start})
+    .attr("y",0)
+    .attr("width",3)
+    .attr("height",15)
+    .attr("fill", "green");
+/*   var lines = canva.append("line")
+    .attr("x1",10)
+    .attr("y1",)
+    .attr("x2", function)
+    .attr("y2",)
+
+    
+  group.selectAll(".line")
+    .data(ABCB7.transcripts)
+    .enter().append("path")
+    .attr("class", "line")
+    .attr("d", line); */
+/*   for (var transcripts in ABCB7) {
+    if(!ABCB7.hasOwnProperty(trancripts)) {
+      continue;
+    }
+    canva.append.line()
+      .x(function(d,i){transcripts.end-transcripts.start;})
+      .y(function(d,i){
+        return (50*i+100);
+    });
+  }
+  */
