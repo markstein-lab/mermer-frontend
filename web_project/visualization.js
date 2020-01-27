@@ -19,7 +19,7 @@ var temp = {sequences: [
       }]
     }]
   };
-  
+  // TODO: Start and stop codons
   var ABCB7 = temp.sequences[0].genes[0];
 
   var canva= d3.select('body').append('svg')
