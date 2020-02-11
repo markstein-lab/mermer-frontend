@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .navbar-custom {
+            background-color:crimson;
+        }
+        .navbar-custom a {
+            color:aliceblue;
+            text-align: center;
+            font-size: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+        <nav class="navbar navbar-custom  justify-content-center">
+                        <div class="topnav-left">
+                        <a class="navbar-brand pull-left navbar-left" href="#">
+                                <img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" alt="marksteinlab.org" style="float:left;width:50px;height:50px">
+                              
+                        </a>
+                        </div>
+                            <div class="topnav-centered">
+                                    <a href="#home" class="active">merMER   </a>
+                                  </div>
+                            <div class="topnav-right">
+                            <a class="navbar-brand pull-right navbar-right" href="#">
+                                    <img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" alt="marksteinlab.org" style="float:right;width:50px;height:50px">
+                            </a>
+                            </div>
+              </nav>        
+    <form>
+    <div class="form-group text-center">
+            <label for="inputSequences">Input Sequences</label>
+            <textarea class="form-control" id="inputSequences" rows="3"></textarea>
+    </div>
+
+    <header>
+        <h5 align="center">Model Organisms</h5>
+    </header>
+    <div class="model-organims text-center">
+        <select multiple class="model" id="modelorganisms">
+            <option>Drosophila Melanogaster</option>
+            <option>Homo Sapiens</option>
+            <option>Mus Muculus</option>
+            <option>Saccharomyces cerevisae</option>
+            <option>Escherichia coli</option>
+            <option>C. elegans</option>
+            <option>Arabidopsis thaliana</option>
+            <option>Danio rerio</option>
+            <option>C.merolae</option>
+            <option>New Mouse</option>
+            <option>Bombyx mori</option>
+
+        </select>
+      </div>
+    </form>
+    <div class="submit text-center">
+    <button type="button" class="btn btn-danger">Submit</button>
+    </div>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<div class="container-fluid text-center">
+<div class="dropdown btn-group">
+<button class="btn btn-info btn-danger" type="button" data-toggle="collapse" data-target="#footwear" aria-expanded="false" aria-controls="footwear">
+Restrictions
+</button>
+
+<div class="collapse" id="footwear">
+<p>
+    <ul>
+        5' UTRs <input type="checkbox" name="domainRestrict" value="5' UTRs" /> <br />
+        3' UTRS <input type="checkbox" name="domainRestrict" value="3' UTRs" /> <br />
+        introns <input type="checkbox" name="domainRestrict" value="introns" /> <br />
+        exons <input type="checkbox" name="domainRestrict" value="exons" /> <br />
+    </ul>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<button class="btn btn-info btn-danger" type="button" data-toggle="collapse" data-target="#footwear1" aria-expanded="false" aria-controls="footwear1">
+    IUPAC Codes
+    </button>
+    
+    <div class="collapse" id="footwear1">
+    <p>
+        <ul>
+                A   Adenine
+                C   Cytosine
+                G   Guanine
+                T   Thymine
+                U   Uracil
+                B = C|T|U|G = ~A
+                D = A|T|U|G = ~C
+                H = A|T|U|C = ~G
+                K = T|U|G
+                M = C|A
+                N = A|C|G|T|U
+                R = A|G
+                S = C|G
+                V = A|C|G = ~(T|U)
+                W = T|U|A
+                Y = C|T|U
+        </ul>
+    </p>
+</form>
+
+</body>
+<script>
+</script>
+</html>

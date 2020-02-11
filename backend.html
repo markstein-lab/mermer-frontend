@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+        .navbar-custom {
+            background-color:rgb(229,66,67);
+            width:100000px;
+            height:100px;
+            top:-1;
+            left:0;
+            z-index: 1;
+        }
+        .navbar-custom a {
+            color:aliceblue;
+            text-align:right;
+            font-size: 50px;
+            right:0;
+            left:55%;
+        }
+
+        h2 {
+            color:aliceblue;
+            font-size:40px;
+        }
+        svg {
+            margin-left:220px;
+        }
+        .sidenav {
+            width: 200px; 
+            position: fixed; 
+            z-index: 1; 
+            top:200px; 
+            left: 0;
+            background-color:rgb(229,66,67); 
+            overflow-x: hidden; 
+            border: 5px solid aliceblue;
+            border-radius: 4px;
+        }
+        
+        .sidenav a, p,li{
+            font-size: 20px;
+            color: aliceblue;
+            display: block;
+        }
+        .sidenav label {
+            font-size:30px;
+            color:aliceblue;
+            
+        }
+        .main {
+           margin-left: 200px;
+           margin-top:50px;
+
+        }
+        
+        .btn-danger {
+            background-color:rgb(229,66,67);
+            border-radius:4px;
+            color:aliceblue;
+            font-size:40px;
+        }
+        table{
+            margin-left:290px;
+            border:5px solid rgb(229,66,67);
+            letter-spacing:1px;
+            font-size:40px;
+            text-align:center;
+
+        }
+        .td,th{
+            border:3px solid rgb(229,66,67);
+            width:200px;
+        }
+        
+        .checkbox {
+            width:50px;
+            height:50px;
+        }
+</style>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+</head>
+
+
+<body>
+        <nav class="navbar navbar-custom">
+                <a class="navbar-brand pull-left navbar-left" href="#">
+                        <img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" alt="marksteinlab.org" style="float:left;width:100px;height:100px">
+                </a>
+                <a class="navbar-brand pull-right navbar-right" href="#">
+                    <button type="button" class="btn btn-danger">Contact Us</button>
+                </a>
+      </nav> 
+    <!-- Make toggleable later -KN 1/24 -->
+     <div class="sidenav"> 
+                        <p>Restrictions</p>
+                        <br>
+                        <input type="checkbox" name="UTR1" checked>
+                        <label for="UTR1">5' UTR</label>
+                        <br>
+                        <input type="checkbox" name="UTR2" checked>
+                        <label for="UTR2">3' UTR</label>
+                        <br>
+                        <input type="checkbox" name="CDS" checked>
+                        <label for="CDS"> CDS</label>
+                        <br>
+                        <input type="checkbox" name="Exon" checked>
+                        <label for="Exon"> Exon </label>
+                        <br>
+                        <input type="checkbox" name="Intron" checked>
+                        <label for="Intron"> Intron</label>
+                        <br>
+                        <input type="checkbox" name="intergenic" checked>
+                        <label for="intergenic">Intergenic</label>
+                        <br><br>
+                        <p>IUPAC Codes: </p>
+                        <ul>
+                            <li>A   Adenine</li>
+                            <li>C   Cytosine</li>
+                            <li>G   Guanine</li>
+                            <li>T   Thymine</li>
+                            <li>U   Uracil</li>
+                            <li>B = C|T|U|G = ~A</li>
+                            <li>D = A|T|U|G = ~C</li>
+                            <li>H = A|T|U|C = ~G</li>
+                            <li>K = T|U|G</li>
+                            <li>M = C|A</li>
+                            <li>N = A|C|G|T|U</li>
+                            <li>R = A|G</li>
+                            <li>S = C|G</li>
+                            <li>V = A|C|G = ~(T|U)</li>
+                            <li>W = T|U|A</li>
+                            <li>Y = C|T|U</li>
+                        </ul>
+
+                  </div>
+            
+          </div>
+    <div class="main">
+            <button type="button" class="btn btn-danger">Save Search</button>
+            <button type="button" class="btn btn-danger">Download Log</button>
+            <button type="button" class="btn btn-danger">Download Hits</button>
+            <br><br><br>
+            <!-- /TODO Static for planning, feed with JSON data -KN -->
+            
+            </div>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Chromosome Number</th>
+            </tr>
+        </table>
+    <div class="results">
+        <label for="gene1">Cluster 1:ABCB7</label>
+        <script src="visualization.js"></script>
+        <!-- TODO include results information (IE base pair away) -->
+        <br><br><br>
+    </div>
+</body>
+<script>
+        $(document).ready(function () {
+        var json ={Query:"GAGA",hits:[{chromosome: 3, position:16184,sequence:"GAGAGAG",gene:[
+  
+  {geneName: "ABCB7", start: 1618414, end: 1623413, geneId: "FBgn0035244", transcripts: [
+
+{transcriptName: "ABCB7-RA", start: 1618414, end: 1623413, transcriptId: "FBtr0072754", exons: [
+
+{exonNumber: 1, start: 1618414, end: 1618617, exonId: "FBgn0035244:1", exonVersion: 1, ranges: [{start: 1618501, end: 1618617, type: "CDS"}, {start: 1618501, end: 1618503, type: "start_codon"}]}, {exonNumber: 2, start: 1620428, end: 1620554, exonId: "FBgn0035244:2", exonVersion: 1, ranges: [{start: 1620428, end: 1620554, type: "CDS"}]}, {exonNumber: 3, start: 1620817, end: 1621042, exonId: "FBgn0035244:3", exonVersion: 1, ranges: [{start: 1620817, end: 1621042, type: "CDS"}]}, {exonNumber: 4, start: 1621103, end: 1621257, exonId: "FBgn0035244:5", exonVersion: 1, ranges: [{start: 1621103, end: 1621257, type: "CDS"}]}, {exonNumber: 5, start: 1621317, end: 1622665, exonId: "FBgn0035244:6", exonVersion: 1, ranges: [{start: 1621317, end: 1622665, type: "CDS"}]}, {exonNumber: 6, start: 1622732, end: 1623413, exonId: "FBgn0035244:8", exonVersion: 1, ranges: [{start: 1622732, end: 1622986, type: "CDS"}, {start: 1622987, end: 1622989, type: "stop_codon"}]}], ranges: [{start: 1618414, end: 1618500, type: "UTR"}, {start: 1622990, end: 1623413, type: "UTR"}]},
+
+{transcriptName: "ABCB7-RB", start: 1618414, end: 1623159, transcriptId: "FBtr0072755", exons: [
+
+{exonNumber: 1, start: 1618414, end: 1618617, exonId: "FBgn0035244:1", exonVersion: 1, ranges: [{start: 1618501, end: 1618617, type: "CDS"}, {start: 1618501, end: 1618503, type: "start_codon"}]}, {exonNumber: 2, start: 1620428, end: 1620554, exonId: "FBgn0035244:2", exonVersion: 1, ranges: [{start: 1620428, end: 1620554, type: "CDS"}]}, {exonNumber: 3, start: 1620919, end: 1621042, exonId: "FBgn0035244:4", exonVersion: 1, ranges: [{start: 1620919, end: 1621042, type: "CDS"}]}, {exonNumber: 4, start: 1621103, end: 1621257, exonId: "FBgn0035244:5", exonVersion: 1, ranges: [{start: 1621103, end: 1621257, type: "CDS"}]}, {exonNumber: 5, start: 1621317, end: 1622665, exonId: "FBgn0035244:6", exonVersion: 1, ranges: [{start: 1621317, end: 1622665, type: "CDS"}]}, {exonNumber: 6, start: 1622732, end: 1623159, exonId: "FBgn0035244:7", exonVersion: 1, ranges: [{start: 1622732, end: 1622986, type: "CDS"}, {start: 1622987, end: 1622989, type: "stop_codon"}]}], ranges: [{start: 1618414, end: 1618500, type: "UTR"}, {start: 1622990, end: 1623159, type: "UTR"}]
+}]
+}]
+        },
+{chromosome: 2, position:16184,sequence:"GAGAGAG",gene:[
+  
+  {geneName: "ABCB7", start: 1618414, end: 1623413, geneId: "FBgn0035244", transcripts: [
+
+{transcriptName: "ABCB7-RA", start: 1618414, end: 1623413, transcriptId: "FBtr0072754", exons: [
+
+{exonNumber: 1, start: 1618414, end: 1618617, exonId: "FBgn0035244:1", exonVersion: 1, ranges: [{start: 1618501, end: 1618617, type: "CDS"}, {start: 1618501, end: 1618503, type: "start_codon"}]}, {exonNumber: 2, start: 1620428, end: 1620554, exonId: "FBgn0035244:2", exonVersion: 1, ranges: [{start: 1620428, end: 1620554, type: "CDS"}]}, {exonNumber: 3, start: 1620817, end: 1621042, exonId: "FBgn0035244:3", exonVersion: 1, ranges: [{start: 1620817, end: 1621042, type: "CDS"}]}, {exonNumber: 4, start: 1621103, end: 1621257, exonId: "FBgn0035244:5", exonVersion: 1, ranges: [{start: 1621103, end: 1621257, type: "CDS"}]}, {exonNumber: 5, start: 1621317, end: 1622665, exonId: "FBgn0035244:6", exonVersion: 1, ranges: [{start: 1621317, end: 1622665, type: "CDS"}]}, {exonNumber: 6, start: 1622732, end: 1623413, exonId: "FBgn0035244:8", exonVersion: 1, ranges: [{start: 1622732, end: 1622986, type: "CDS"}, {start: 1622987, end: 1622989, type: "stop_codon"}]}], ranges: [{start: 1618414, end: 1618500, type: "UTR"}, {start: 1622990, end: 1623413, type: "UTR"}]},
+
+{transcriptName: "ABCB7-RB", start: 1618414, end: 1623159, transcriptId: "FBtr0072755", exons: [
+
+{exonNumber: 1, start: 1618414, end: 1618617, exonId: "FBgn0035244:1", exonVersion: 1, ranges: [{start: 1618501, end: 1618617, type: "CDS"}, {start: 1618501, end: 1618503, type: "start_codon"}]}, {exonNumber: 2, start: 1620428, end: 1620554, exonId: "FBgn0035244:2", exonVersion: 1, ranges: [{start: 1620428, end: 1620554, type: "CDS"}]}, {exonNumber: 3, start: 1620919, end: 1621042, exonId: "FBgn0035244:4", exonVersion: 1, ranges: [{start: 1620919, end: 1621042, type: "CDS"}]}, {exonNumber: 4, start: 1621103, end: 1621257, exonId: "FBgn0035244:5", exonVersion: 1, ranges: [{start: 1621103, end: 1621257, type: "CDS"}]}, {exonNumber: 5, start: 1621317, end: 1622665, exonId: "FBgn0035244:6", exonVersion: 1, ranges: [{start: 1621317, end: 1622665, type: "CDS"}]}, {exonNumber: 6, start: 1622732, end: 1623159, exonId: "FBgn0035244:7", exonVersion: 1, ranges: [{start: 1622732, end: 1622986, type: "CDS"}, {start: 1622987, end: 1622989, type: "stop_codon"}]}], ranges: [{start: 1618414, end: 1618500, type: "UTR"}, {start: 1622990, end: 1623159, type: "UTR"}]
+}]
+}]
+}]};
+    var hitstemp= json.hits;
+
+        var tr;
+        for (var i = 0; i <2; i++) {
+            tr = $('<tr/>');
+            tr.append("<td>" + json.Query + "</td>");
+            tr.append("<td>" + hitstemp[i].chromosome + "</td>");
+            i++;
+            $('table').append(tr);
+            };
+            
+        }
+    );
+/*     $(document).ready(function() {
+    var temp = {Query:"GAGA",hits:[{chromosome: 3, position:16184,sequence:"GAGAGAG",gene:[
+  
+        {geneName: "ABCB7", start: 1618414, end: 1623413, geneId: "FBgn0035244", transcripts: [
+
+    {transcriptName: "ABCB7-RA", start: 1618414, end: 1623413, transcriptId: "FBtr0072754", exons: [
+
+      {exonNumber: 1, start: 1618414, end: 1618617, exonId: "FBgn0035244:1", exonVersion: 1, ranges: [{start: 1618501, end: 1618617, type: "CDS"}, {start: 1618501, end: 1618503, type: "start_codon"}]}, {exonNumber: 2, start: 1620428, end: 1620554, exonId: "FBgn0035244:2", exonVersion: 1, ranges: [{start: 1620428, end: 1620554, type: "CDS"}]}, {exonNumber: 3, start: 1620817, end: 1621042, exonId: "FBgn0035244:3", exonVersion: 1, ranges: [{start: 1620817, end: 1621042, type: "CDS"}]}, {exonNumber: 4, start: 1621103, end: 1621257, exonId: "FBgn0035244:5", exonVersion: 1, ranges: [{start: 1621103, end: 1621257, type: "CDS"}]}, {exonNumber: 5, start: 1621317, end: 1622665, exonId: "FBgn0035244:6", exonVersion: 1, ranges: [{start: 1621317, end: 1622665, type: "CDS"}]}, {exonNumber: 6, start: 1622732, end: 1623413, exonId: "FBgn0035244:8", exonVersion: 1, ranges: [{start: 1622732, end: 1622986, type: "CDS"}, {start: 1622987, end: 1622989, type: "stop_codon"}]}], ranges: [{start: 1618414, end: 1618500, type: "UTR"}, {start: 1622990, end: 1623413, type: "UTR"}]},
+
+    {transcriptName: "ABCB7-RB", start: 1618414, end: 1623159, transcriptId: "FBtr0072755", exons: [
+
+      {exonNumber: 1, start: 1618414, end: 1618617, exonId: "FBgn0035244:1", exonVersion: 1, ranges: [{start: 1618501, end: 1618617, type: "CDS"}, {start: 1618501, end: 1618503, type: "start_codon"}]}, {exonNumber: 2, start: 1620428, end: 1620554, exonId: "FBgn0035244:2", exonVersion: 1, ranges: [{start: 1620428, end: 1620554, type: "CDS"}]}, {exonNumber: 3, start: 1620919, end: 1621042, exonId: "FBgn0035244:4", exonVersion: 1, ranges: [{start: 1620919, end: 1621042, type: "CDS"}]}, {exonNumber: 4, start: 1621103, end: 1621257, exonId: "FBgn0035244:5", exonVersion: 1, ranges: [{start: 1621103, end: 1621257, type: "CDS"}]}, {exonNumber: 5, start: 1621317, end: 1622665, exonId: "FBgn0035244:6", exonVersion: 1, ranges: [{start: 1621317, end: 1622665, type: "CDS"}]}, {exonNumber: 6, start: 1622732, end: 1623159, exonId: "FBgn0035244:7", exonVersion: 1, ranges: [{start: 1622732, end: 1622986, type: "CDS"}, {start: 1622987, end: 1622989, type: "stop_codon"}]}], ranges: [{start: 1618414, end: 1618500, type: "UTR"}, {start: 1622990, end: 1623159, type: "UTR"}]
+    }]
+  }]
+}],
+    };
+    var tr;
+    for(var j=0;j<temp.length;j++) {
+        tr = $('<tr/>');
+        tr.append("<td>"+ j *5 +"</td>" );
+        $('table').append(tr);
+    }
+}); */
+</script>
+</html>
