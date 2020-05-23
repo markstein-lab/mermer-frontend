@@ -1,3 +1,5 @@
+
+
 // DONT TOUCH: Duplicate of visualization.js for BRCA1 to demonstrate this could work for multiple genes. Duplication made for planning/demonstration purposes
 var temp ={
     "gene": [
