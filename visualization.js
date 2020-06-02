@@ -252,12 +252,10 @@ var temp ={
   ],
   "query": "GAG"
 }
-
-
   var ABCB7 = temp.gene[0];
   var query = temp.query;
   var sequence = temp.hits[0].sequence;
-
+  var startIn = temp.hits[0].position;
   var canva= d3.select('#results').append('svg')
       .attr('width',1000)
       .attr('height', 75)
@@ -291,42 +289,61 @@ var temp ={
     .append('g');
 
   var exons2 = exons.append('rect')
-    .attr("x", function(d,i) { return 10 + d.end - d.start})
+    .attr("x", function(d,i) {if(d.exonNumber==4) {
+      return 80+d.end-d.start;
+    }
+    else {
+      return 10 + d.end-d.start;
+    }})
     .attr("y",0)
-    .attr("width", function(d,i) {return 10 + d.end-d.start})
+    .attr("width", function(d,i) {if(d.exonNumber==4) {
+      return 3;
+    }
+    else {
+      return 10 + d.end-d.start;
+    }})
     .attr("height", 30)
     .attr("fill", "black");
-
-  var exons4 =  canva.selectAll('g')
-    .data(function(d,i) { return [55,200,250]})
+    var start = exons.append('rect')
+.attr("x", (ABCB7.transcripts[0].exons[0].ranges[0].start-ABCB7.transcripts[0].exons[0].start + 50))
+.attr("y",0)
+.attr("width", 3
+)
+.attr("height",30)
+.attr("fill", "green");
+    var indi = getIndicesOf(query,sequence);
+    var clusters = canva.selectAll('g')
+    .data([50,89,120])
     .enter()
     .append('g');
-  var exons3 = exons.append('rect')
-    .attr("x", function(d,i) {
-      return 110 + i*5;
-    })
-    .attr("y",0)
-    .attr("width", function(d,i) {return 3 })
-    .attr("height", 30)
-    .attr("fill", "blue");
+  for(var j=0;j<3;j++) {
+  var clustexon = exons.append('rect')
+  .attr("x", (indi[j]+10))
+  .attr("y",0)
+  .attr("width", 3
+  )
+  .attr("height",30)
+  .attr("fill", "blue");
+  }
   var start = transcriptline.selectAll('g')
-    .data(function(d,i) {return ABCB7.transcripts})
+    .data(function(d,i) {return ABCB7.transcripts[0].exons[0].ranges})
     .enter()
     .append('g');
 
-  var startexon = exons.append('rect')
-    .attr("x",function(d,i){return 10+d.end - d.start})
+  var startexon = start.append('rect')
+    .attr("x",function(d,i){
+         return 10+d.end - d.start})
     .attr("y",0)
     .attr("width",function(d,i){
-      if(d.exonNumber > 5){
-        return 3;
-      }
-      else {
-        return 0;
-      }
+      return 3;
     })
     .attr("height",30)
-    .attr("fill", "blue");
+    .attr("fill",function(d,i) { if((d.type).equals("start_codon")) {
+      return "green";
+    }
+  else {
+    return "black";
+  }});
 /*   var lines = canva.append("line")
     .attr("x1",10)
     .attr("y1",)
@@ -353,31 +370,75 @@ var temp ={
 
   // Gives the summary info x from base pairs 
   //TODO : Appending to SVG
- function appendStats(data) {
-     var mainContain = document.getElementById('results');
-    
-     var transcripts = data.gene[0].transcripts;
-     for (var k=0; k<clusterNumbers.length;k++){
-         console.log("K" + k);
-     for(var j=0; j<transcripts.length+1; j++) {
-         console.log("j" + j);
-         var exons2 = transcripts[j].exons;
-         for(var i=0; i<exons2.length;i++) {
-             var div = document.createElement("div");
-             if(clusterNumbers[k] + 1618414 > exons2[i].start && k<clusterNumbers.length);
-                 if (clusterNumbers[k] +1618414 <= exons2[i].end) {
-                     var exons3 = exons2[i];
-                     var exons4 = exons3.ranges;
-                     console.log(exons4[0]);
-                 div.innerHTML = 'Cluster' + (k+1) + 'is in exon' + (i+1) + 'and ' + ((clusterNumbers[k] +1618414)-1618501) +'bp from the start codon' ;
-                 mainContain.appendChild(div);
-                 
-                 
+  function wildcard(searchString) {
+    if (searchString.indexOf('M') != -1) {
+      console.log(searchString.replace('M','A'));
+      return getIndicesOf(searchString.replace('M','A'),sequence) + getIndicesOf(searchString.replace('M','C'),sequence);
+      
+    }
+    if (searchString.indexOf('R') != -1) {
+      console.log(searchString.replace('R','A'));
+      return getIndicesOf(searchString.replace('R','A'),sequence) + getIndicesOf(searchString.replace('R','G'),sequence);
+      
+    }
+    if (searchString.indexOf('Y') != -1) {
+      console.log(searchString.replace('Y','T'));
+      return getIndicesOf(searchString.replace('Y','C'),sequence) + getIndicesOf(searchString.replace('Y','T'),sequence);
+      
+    }
+    if (searchString.indexOf('S') != -1) {
+      console.log(searchString.replace('S','G'));
+      return getIndicesOf(searchString.replace('S','G'),sequence) + getIndicesOf(searchString.replace('S','C'),sequence);
+      
+    }
+    if (searchString.indexOf('W') != -1) {
+      console.log(searchString.replace('W','A'));
+      return getIndicesOf(searchString.replace('W','A'),sequence) + getIndicesOf(searchString.replace('W','T'),sequence);
+      
+    }
+    if (searchString.indexOf('K') != -1) {
+      console.log(searchString.replace('K','G'));
+      return getIndicesOf(searchString.replace('K','G'),sequence) + getIndicesOf(searchString.replace('K','T'),sequence);
+      
+    }
+    if (searchString.indexOf('B') != -1) {
+      console.log(searchString.replace('B','C'));
+      return getIndicesOf(searchString.replace('B','C'),sequence) + getIndicesOf(searchString.replace('B','G'),sequence)+getIndicesOf(searchString('B','T'),sequence);
+      
+    }
+    if (searchString.indexOf('D') != -1) {
+      console.log(searchString.replace('D','A'));
+      return getIndicesOf(searchString.replace('D','A'),sequence) + getIndicesOf(searchString.replace('D','G'),sequence)+getIndicesOf(searchString('D','T'),sequence);
+      
+    }
 
+  }
+  function getIndicesOf(searchStr, str) {
+    var searchStrLen = searchStr.length;
+    if (searchStrLen == 0) {
+        return [];
+    }
+    var startIndex = 0, index, indices = [];
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
+    while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+        indices.push(index);
+        startIndex = index + searchStrLen;
+    }
 
-                 k++;
-                 }
-             }
-         }
-     }
- }
+    return indices;
+}
+console.log(indi);
+query = "GAG";
+var indi = getIndicesOf(query,sequence);
+appendStats(indi);
+function appendStats(data) {
+  var mainContain3 = document.getElementById('results');
+
+  for (var i=0;i<3;i++){
+  var div = document.createElement("div");
+  div.innerHTML = 'Cluster ' + (i+1) + 'is ' + (220-indi[i])+ "bp from the start codon" ;
+  
+  mainContain3.appendChild(div);
+  }} 
+   

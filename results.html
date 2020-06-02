@@ -287,12 +287,10 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
         function appendTable(data) {
             var mainContainer = document.getElementById("myData");
             
-            var Query = data.query;
-            
 
             var hit = data.hits;
             var sequence = hit[0].sequence;
-
+            var Query = data.query;
             var div = document.createElement("div");
             mainContainer.appendChild(div);           
             var tr;
@@ -310,6 +308,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
         }
         // Returns sum of queries
         function clusterSum(Query, sequence) {
+            var Query = "GAG";
             var final = 0;
             var itr = 0;
             while ((itr = sequence.indexOf(Query,itr)) !=-1) {
