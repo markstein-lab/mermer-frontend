@@ -1,6 +1,7 @@
 
 
 // DONT TOUCH: Duplicate of visualization.js for BRCA1 to demonstrate this could work for multiple genes. Duplication made for planning/demonstration purposes
+function help() {
 var temp ={
   "gene": [
     {
@@ -410,4 +411,4 @@ div.innerHTML = 'Cluster ' + (i+1) + 'is ' + (220-indi[i])+ "bp from the start c
 
 mainContain3.appendChild(div);
 }} 
- 
+}

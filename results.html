@@ -123,6 +123,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
   right:0;
 }
     </style>
+     <script src="visualization.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -233,11 +234,8 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                             <div id="results">
                                             <h5>Results</h5>
                                                 <label for="gene1">Cluster 1:ABCB7</label>
-                                                <script src="visualization.js"></script>
+                                               
                                                 <br><br>
-                                                    <label for="gene2">Cluster 2: BRCA1</label>
-                                                    <script src="visualization2.js"></script>
-                                        
                                             </div>
                                     </div>
                                     <div class="pagination">
@@ -278,12 +276,24 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
             })
             .then(function (data) {
                 appendTable(data);
-                appendStats(data);
-
+                appendVisual(data);
             })
             .catch(function (err) {
                 console.log('error: ' + err);
             });
+         
+            function appendVisual(data) {
+            console.log("h");
+            var mainContainer1 = document.getElementById("results");
+            var div1 = document.createElement("div");
+            var div = document.createElement("div");
+            for (var i=0;i<2;i++) {
+                div = t = document.createTextNode("Welcome to My Homepage");
+                div1 = hi(data.gene[i]);
+            }
+            mainContainer1.appendChild(div1);
+            mainContainer1.appendChild(div);
+        }
         function appendTable(data) {
             var mainContainer = document.getElementById("myData");
             
@@ -315,7 +325,6 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                 final++;
                 itr++;
             }
-            return final;
         }
         // Returns index of each query within the sequence
         function clusterNum(Query,sequence) {
@@ -328,8 +337,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
             }
             return clusters;
         }
- 
-        
+
 </script>
 
 </html>
