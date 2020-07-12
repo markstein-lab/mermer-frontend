@@ -3,20 +3,14 @@
 */
 
 // JSON Object bound to variable temp. TODO: remove hardcode, allow for iterance
-function hi(temp, hits) {
-
+function name (geneN) {
+  console.log("the name is" +geneN);
+}
+function hi(temp) {
+  
     var ABCB7 = temp;
     var query = "GAG"
     var sequence = "CCGAGATGCGAATGCTGATATCGTAGCAAAAACACAGGGACGGTGCTATATGAAAGAAGAGGGACAGTTTTATTTTGTTTTCGCCTGCAGGCAATTGAGTAATGGCCGGACTCCTTCACCTGACCAAGCAGTGCAGCATCCACCTACCCGCCCACTTGGGACGCGCGAAATGCTACACACTCGCTAAGGGACCGGGAACACACGTGCAGGCAAGAGTG"
-    console.log("hi");
-    appendName(ABCB7.geneName);
-    var starti= [];
-    for (var i=0; i <ABCB7.transcripts.length;i++) {
-      starti.push(80 + (ABCB7.transcripts[i].exons[0].ranges[1].start - ABCB7.transcripts[i].exons[0].start));
-    console.log(ABCB7.transcripts[i].start);
-    console.log(ABCB7.transcripts[i].exons[0].ranges[1].start)
-    }
-    console.log("starti push" + starti);
     var canva= d3.select('#results').append('svg')
         .attr('width',1000)
         .attr('height', 75)
@@ -40,7 +34,6 @@ function hi(temp, hits) {
       .text(function(d) {return d.transcriptName})
       .attr("font-size", "15px")
       .attr("fill", "black");
-      
     var transcriptText = transcriptline.selectAll('g')
       .data(ABCB7.transcripts)
       .enter()
@@ -49,42 +42,63 @@ function hi(temp, hits) {
       .data(function(d,i) { return ABCB7.transcripts[i].exons})
       .enter()
       .append('g');
+  
     var exons2 = exons.append('rect')
-      .attr("x", function(d,i)  {
-        console.log(10 + d.end-d.start)
-        return 10 + d.end-d.start})
+      .attr("x", function(d,i) {if(d.exonNumber==4) {
+        return 80+d.end-d.start;
+      }
+      else {
+        return 10 + d.end-d.start;
+      }})
       .attr("y",0)
-      .attr("width", function(d,i)  {
-        console.log(10 + d.end-d.start)
-        return 10 + d.end-d.start})
+      .attr("width", function(d,i) {if(d.exonNumber==4) {
+        return 3;
+      }
+      else {
+        return 10 + d.end-d.start;
+      }})
       .attr("height", 30)
       .attr("fill", "black");
-
+      var start = exons.append('rect')
+  .attr("x", (ABCB7.transcripts[0].exons[0].ranges[0].start-ABCB7.transcripts[0].exons[0].start + 50))
+  .attr("y",0)
+  .attr("width", 3
+  )
+  .attr("height",30)
+  .attr("fill", "green");
       var indi = getIndicesOf(query,sequence);
-      
       var clusters = canva.selectAll('g')
       .data([50,89,120])
       .enter()
       .append('g');
-    console.log(indi)
-    for(var j=0;j<4;j++) {
+    for(var j=0;j<3;j++) {
     var clustexon = exons.append('rect')
     .attr("x", (indi[j]+10))
     .attr("y",0)
-    .attr("width", query.length
+    .attr("width", 3
     )
     .attr("height",30)
-    .attr("fill", "#d0e2dd");
+    .attr("fill", "blue");
     }
-    for (var k=0; k<starti.length;k++){
-      var starexon = exons.append('rect')
-      .attr("x", (starti[k]))
+    var start = transcriptline.selectAll('g')
+      .data(function(d,i) {return ABCB7.transcripts[0].exons[0].ranges})
+      .enter()
+      .append('g');
+  
+    var startexon = start.append('rect')
+      .attr("x",function(d,i){
+           return 10+d.end - d.start})
       .attr("y",0)
-      .attr("width",3)
-      .attr("height", 30)
-      .attr("fill",'#679186')
-    }
-
+      .attr("width",function(d,i){
+        return 3;
+      })
+      .attr("height",30)
+      .attr("fill",function(d,i) { if((d.type).equals("start_codon")) {
+        return "green";
+      }
+    else {
+      return "black";
+    }});
   /*   var lines = canva.append("line")
       .attr("x1",10)
       .attr("y1",)
@@ -162,57 +176,21 @@ function hi(temp, hits) {
           indices.push(index);
           startIndex = index + searchStrLen;
       }
-      console.log("indi" + indices);
+  
       return indices;
   }
   console.log(indi);
   query = "GAG";
   var indi = getIndicesOf(query,sequence);
   appendStats(indi);
-  link(ABCB7.geneName);
   function appendStats(data) {
     var mainContain3 = document.getElementById('results');
   
-
+    for (var i=0;i<3;i++){
     var div = document.createElement("div");
-    div.innerHTML = 'Total Number of Hits: ' + indi.length;
+    div.innerHTML = 'Cluster ' + (i+1) + 'is ' + (220-indi[i])+ "bp from the start codon" ;
     
     mainContain3.appendChild(div);
-    var div2 = document.createElement("div");
-    div2.innerHTML = 'Gene length: ' + (ABCB7.transcripts[0].end - ABCB7.transcripts[0].start) +'bp' ;
-
-    mainContain3.appendChild(div2);
-    
-    }
-
-  } 
-    function link(name) { 
-      var mainContain3 = document.getElementById('results');
-      var a = document.createElement('a');  
-      var link = document.createTextNode("NCBI Link"); 
-        
-      // Append the text node to anchor element. 
-      a.appendChild(link);  
-        
-      // Set the title. 
-      a.title = "NCBI Reference";  
-        
-      // Set the href property. 
-      a.href = "https://www.ncbi.nlm.nih.gov/gene/?term="+ name;  
-        
-      // Append the anchor element to the body. 
-      mainContain3.appendChild(a);  
-  } 
-  function appendName(name) {
-
-    var mainContain3 = document.getElementById('results');
-  
-
-    var div = document.createElement("div");
-    div.innerHTML = 'Gene ' + name;
-    
-    mainContain3.appendChild(div);
-    } 
-    
+    }} 
      
-
+}
