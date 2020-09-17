@@ -7,22 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>merMER Results</title>
-
+    <link rel="icon" href="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg"  type="image/gif">
     <!-- Bootstrap CSS DONT TOUCH -->
+    <link rel="stylesheet" href="/fonts/fontawesome-free-5.3.1-web/css/all.css">
+    <script src="https://kit.fontawesome.com/9edcac586f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <!-- For sidebar + icons-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer href="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         /*TODO: Move to external CSS file, off of html*/
+        #tooltip {
+	opacity: 0;
+	position: fixed;			
+	text-align: left;				
+	padding: 5px;				
+	font: 14px sans-serif;
+	color:#fff;		
+	background: #333;	
+	border: 0px;		
+	border-radius: 2px;			
+	pointer-events: none;
+	z-index: 1099;
+}
         .wrapper {
             display: flex;
             width:100%;
             align-items: stretch;
-            background-color:aliceblue;
+            background-color:white;
         }
         #content {
+            background-color:white;
             width: calc(100% - 250px);
             padding: 40px;
             height: 100vh;
@@ -35,68 +52,73 @@
         }
 #content.active {
     width: 100%;
+    background-color:#EEEDE7;
     
 }  
 
-        #sidebar {
-            background:rgb(229,66,67);
-            color: #fff;
+        #navbar #sidebar {
+            background:#868B8E;
+            color: #EEEDE7;
             transition: all 0.3s;
             top: 0;
             left: 0;
-            height: 100vh;
             z-index: 999;
-            max-width: 250px;
+            max-width: 100vh;
         }
-        #sidebar.active {
-            margin-left: -250px;
+        #sidebar.active{
+            margin-left: -350px;
+            
         }
         table{
-            border:5px solid rgb(229,66,67);
+            border:5px solid #B9B7BD;
             letter-spacing:1px;
             font-size:20px;
             text-align:center;
 
         }
         .td,th,tr{
-            border:3px solid rgb(229,66,67);
+            border:3px solid #B9B7BD;
             width:200px;
         }
-
-#sidebar .sidebar-header {
+#results{
+    background-color:white;
+    width:100%;
+    padding-left: 0px
+}
+#navbar .sidebar .sidebar-header .navbar-header {
     padding: 20px;
-    background: rgb(229,66,67);
+    background: #868B8E;
     text-align: center;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid rgb(229,66,67);
+    border-bottom: 1px solid #868B8E;
 }
 
-#sidebar ul p {
-    color: #fff;
+#navbar ul p {
+    color: white;
     padding: 20px;
 }
 
-#sidebar ul li a {
+#navbar ul li a {
     padding: 20px;
     font-size: 1.1em;
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #fff;
-    background:rgb(229,66,67);
+    color: white;
+    background: #868B8E;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: rgb(229,66,67);
+    color: white;
+    background: #868B8E;
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background:rgb(229,66,67);
+    background:#868B8E;
 }
 a[data-toggle="collapse"] {
     position: relative;
@@ -129,11 +151,39 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 
-<body>
-   
+<body style="background-color:white">
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark" style="background-color:#4E4F50">
+        <a class="navbar-brand" href="#"><h4>merMER</h4></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+          aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-dna"></i> Genomes Supported
+                </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+                <i class="fab fa-github"></i>github
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i> Contact Us </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                <a class="dropdown-item" href="#">Markstein Lab</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <div class="wrapper">
-        <!-- Sidebar -->
-        <nav id="sidebar">
+               <!-- Sidebar -->
+     <nav id="sidebar">
             <div class="sidebar-header">
                 
                 <div class="logo">
@@ -168,7 +218,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                     </ul>
                 </li>
 
-                <li class="active">
+                <!-- <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Restrictions</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <ul>
@@ -193,7 +243,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                           </ul>
                                           </ul>
                                           </li>
-                                          </ul>
+                                          </ul> -->
                                           </nav>
                     <!-- All result content -->
                     <div id="content">
@@ -207,10 +257,10 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                                     </button>
                                                     <ul class="nav navbar-nav ml-auto">
                                                     <a href="2-8-19-58561.gff" download="logo">
-                                                    <button type="button" class="btn btn-danger">Save Search</button>
+                                                    <button type="button"class="btn btn-dark mr-4" style="background-color: #4E4F50;"> <i class="far fa-save"></i> Save Search</button>
                                                 </a>
                                                     <a href="fake.json" download="logo">
-                                                     <button type="button" class="btn btn-danger">Download Hits</button>
+                                                     <button type="button"class="btn btn-dark mr-4" style="background-color: #4E4F50;"> <i class="fas fa-arrow-circle-down"></i> Download Hits</button>
                                                     </a> 
                                                 </ul>
                                                 </div>
@@ -233,9 +283,9 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                             <br><br>
                                             <div id="results">
                                             <h5>Results</h5>
-                                                <label for="gene1">Cluster 1:ABCB7</label>
-                                               
-                                                <br><br>
+                                            <script type="text/javascript" src="visualization.js"></script>
+                                            <script type="text/javascript" src="visualization3.js"></script>
+                                            <br>
                                             </div>
                                     </div>
                                     <div class="pagination">
@@ -283,16 +333,18 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
             });
          
             function appendVisual(data) {
-            console.log("h");
             var mainContainer1 = document.getElementById("results");
-            var div1 = document.createElement("div");
             var div = document.createElement("div");
+            var div2 = document.createTextNode("div")
             for (var i=0;i<2;i++) {
-                div = t = document.createTextNode("Welcome to My Homepage");
-                div1 = hi(data.gene[i]);
+                
+                div= hi(data.gene[i],data.hits[i]);
+                div2 =data.gene[i].geneName;
+                console.log(data.gene[i]);
             }
-            mainContainer1.appendChild(div1);
+            
             mainContainer1.appendChild(div);
+           
         }
         function appendTable(data) {
             var mainContainer = document.getElementById("myData");
@@ -300,24 +352,27 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 
             var hit = data.hits;
             var sequence = hit[0].sequence;
-            var Query = data.query;
+            
             var div = document.createElement("div");
             mainContainer.appendChild(div);           
             var tr;
-        for(var j=0; j<hit.length;j++){
-            var sequence = hit[j].sequence;
-        for (var i = 0; i <2; i++) {
+            console.log(data.query);
+            var cluster = [9,7,31];
+        for(var k=0; k<data.query.length ;k++) {
+        for (var i = 0; i <1; i++) {
             tr = $('<tr/>');
-            tr.append("<td>" + Query + "</td>");
-            tr.append("<td>" + hit[j].chromosome + "</td>");
-            tr.append("<td>"+ clusterSum(Query,sequence) + "</td>")
+            tr.append("<td>" + data.query[k] + "</td>");
+            tr.append("<td>" + hit[0].chromosome  + ", " + hit[1].chromosome + "</td>");
+            tr.append("<td>"+ cluster[k] + "</td>")
             i++;
             $('table').append(tr);
             };
         }
+
         }
         // Returns sum of queries
         function clusterSum(Query, sequence) {
+            console.log(sequence)
             var Query = "GAG";
             var final = 0;
             var itr = 0;
@@ -325,6 +380,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                 final++;
                 itr++;
             }
+            return final;
         }
         // Returns index of each query within the sequence
         function clusterNum(Query,sequence) {
@@ -335,6 +391,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                 final++;
                 itr++;
             }
+            console.log(clusters + "clus")
             return clusters;
         }
 

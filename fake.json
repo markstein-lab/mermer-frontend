@@ -237,13 +237,13 @@
       ]
     },
     {
-      "end": 1623413,
-      "geneId": "FBgn0035244",
-      "geneName": "BRCA1",
-      "start": 1618414,
+      "end": 2371,
+      "geneId": "FBgn0086706",
+      "geneName": "Pix",
+      "start": 0,
       "transcripts": [
         {
-          "end": 1623413,
+          "end": 2371,
           "exons": [
             {
               "end": 1618617,
@@ -307,7 +307,7 @@
               "start": 1621103
             },
             {
-              "end": 1622665,
+              "end": 1250,
               "exonId": "FBgn0035244:6",
               "exonNumber": "5",
               "exonVersion": "1",
@@ -318,10 +318,10 @@
                   "type": "CDS"
                 }
               ],
-              "start": 1621317
+              "start": 1100
             },
             {
-              "end": 1623413,
+              "end": 2000,
               "exonId": "FBgn0035244:8",
               "exonNumber": "6",
               "exonVersion": "1",
@@ -337,7 +337,7 @@
                   "type": "stop_codon"
                 }
               ],
-              "start": 1622732
+              "start": 1400
             }
           ],
           "ranges": [
@@ -352,9 +352,9 @@
               "type": "UTR"
             }
           ],
-          "start": 1618414,
+          "start": 0,
           "transcriptId": "FBtr0072754",
-          "transcriptName": "ABCB7-RA"
+          "transcriptName": "Pix-A"
         },
         {
           "end": 1623159,
@@ -468,7 +468,7 @@
           ],
           "start": 1618414,
           "transcriptId": "FBtr0072755",
-          "transcriptName": "ABCB7-RB"
+          "transcriptName": "Pix-B"
         }
       ]
     }
@@ -484,8 +484,8 @@
         "chromosome": "chr3R",
       "gene": [],
       "position": "1617300",
-      "sequence": "CCGAGATGCGAATGCTGATATCGTAGCAAAAACACAGGGACGGTGCTATATGAAAGAAGAGGGACAGTTTTATTTTGTTTTCGCCTGCAGGCAATTGAGTAATGGCCGGACTCCTTCACCTGACCAAGCAGTGCAGCATCCACCTACCCGCCCACTTGGGACGCGCGAAATGCTACACACTCGCTAAGGGACCGGGAACACACGTGCAGGCAAGAGTG"
+      "sequence": "CCGAGACATGCGAATGCTGATATCGTAGCAAAAATTCAGGGACGGTGCTATATGAAAGAAGAGGGCCCGTTTTATTTTGTTTTCGCCTGCAGGCAATTGAGTAATGGCCGGACTCCTTCACCTGACCAAGCAGTGCAGCATCCACCTACCCGCCCACTTGGGACGCGCGAAATGCTACACACTCGCTAAGGGACCGGGATACGTGCAGGCAAGAGTG"
     }
   ],
-  "query": "GMG"
+  "query":["GMGR", "ACA", "RYS"] 
 }
