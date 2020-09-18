@@ -4,11 +4,7 @@ function name (geneN) {
 function hi(temp,hit) {
       var mainContainer = document.getElementById('results');
     var div2 = document.createElement("div")
-    var canva= d3.select('#intergenic').append('svg')
-        .attr('width',1000)
-        .attr('height', 150)
-        .style('border', '3px solid')
-        .style('margin-left','20px');
+
     var div = document.createElement("div");
     div.style.textIndent = "20px";
     div.innerHTML = 'Gene Name: ' + (temp.geneName) ;
