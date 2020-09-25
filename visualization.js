@@ -41,27 +41,7 @@ function hi(temp,hit) {
         console.log("hi")
       })
       .attr("fill","black");
-    var nuclbu = canva.append('rect')
-    .attr("x", 975)
-    .attr("y",75)
-    .attr("width", 15)
-    .attr("height", 15)
-    .attr("rx",3)
-      .attr("ry",3)
-    .attr("fill", "red")
-    .on('click', function(d) {
-      appendStats3();
-      var r = d3.select(this);
-      var p = d3.select('canva').append('div')
-                              .append('p')
-                              .attr('position', 'relative');
-      var m = d3.mouse(this);
-       results.append('text')
-       .text("sequence")
-       .attr("font-size", "15px")
-       .attr("fill", "black");
-     console.log("G")
-    })
+    
     var transcriptName = transcriptline.append('text')
       .attr("x",10)
       .attr("y", 15)
@@ -129,12 +109,12 @@ function hi(temp,hit) {
     for(var j=0;j<indi.length;j++) {
     var clustexon = exons.append('rect')
     .attr("x", (indi[j]+400))
-    .attr("y",15)
+    .attr("y",30)
     .attr("rx",5)
       .attr("ry",5)
     .attr("width", 3
     )
-    .attr("height",30)
+    .attr("height",5)
     .attr("fill", "#E4E4E4");
     }
     var clus2 =[];
@@ -145,12 +125,12 @@ function hi(temp,hit) {
     for(var j=0;j<clus2.length;j++) {
       var clustexon = exons.append('rect')
       .attr("x", (clus2[j]+200))
-      .attr("y",15)
+      .attr("y",30)
       .attr("width", 3
       )
       .attr("rx",5)
       .attr("ry",5)
-      .attr("height",30)
+      .attr("height",5)
       .attr("fill", "#939393");
       }
     var clus3=[];
@@ -160,12 +140,12 @@ function hi(temp,hit) {
     for(var j=0;j<clus3.length;j++) {
       var clustexon1 = exons.append('rect')
       .attr("x", (clus3[j] * 5))
-      .attr("y",15)
+      .attr("y",30)
       .attr("width", 3
       )
       .attr("rx",5)
       .attr("ry",5)
-      .attr("height",30)
+      .attr("height",5)
       .attr("fill", "#636363");
       }
     var start = transcriptline.selectAll('g')
