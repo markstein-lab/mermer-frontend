@@ -21,6 +21,13 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <style>
             /*TODO: Move to external CSS file, off of html*/
+            .header {
+      text-align: center;
+      background: #4E4F50;
+      padding-top: 5px;
+      color: white;
+      font-size: 40px;
+   }
             #tooltip {
         opacity: 0;
         position: fixed;			
@@ -163,7 +170,7 @@
     
     <body style="background-color:white">
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark" style="background-color:#4E4F50">
-            <a class="navbar-brand" href="#"><h2 style="text-align:center">merMER</h2></a>
+            <a class="navbar-brand" href="#"><div class="header"><h2 style="text-align:center">merMER</h2></div></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
               aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -238,11 +245,12 @@
     
           </div>
           <!--  col-md-6   -->
-        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox1">5' UTRs</label>
+          <div class="col-md-6">
+        <input class="form-check-input mr-4 ml-4" type="checkbox" style="margin-right: 20px" id="inlineCheckbox1" value="option1">
+        <label class="form-check-label ml-4 mr-4" style="margin-right: 20px"  for="inlineCheckbox1">5' UTRs</label>
         <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox2">3' UTRs</label>
-    
+        <label class="form-check-label ml-4 mr-4" style="margin-right: 10px" for="inlineCheckbox2">3' UTRs</label>
+      </div>
           <!--  col-md-6   -->
         </div>
         <!--  row   -->
@@ -263,12 +271,14 @@
               <input type="email" class="form-control" id="email" placeholder="email">
             </div>
           </div>
-              <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox3" value="option3">
+          <div class="col-md-2">
+        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox3" value="option3">
         <label class="form-check-label ml-4 mr-4" for="inlineCheckbox3">Introns</label>
         <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox4" value="option4">
         <label class="form-check-label ml-4 mr-4" for="inlineCheckbox4">Exons</label>
         <input class="form-check-input ml-4 mr-4" type="checkbox" id="inlineCheckbox5" value="option5">
         <label class="form-check-label ml-4 mr-4" for="inlineCheckbox5">Integenic</label>
+      </div>
           <!--  col-md-6   -->
           </div>
           <!--  col-md-6   -->
