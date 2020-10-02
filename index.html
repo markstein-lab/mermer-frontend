@@ -194,89 +194,102 @@
 </head>
 </nav> 
 <body>
-    <form action="test.php" method="post">
-        <div class="col-2 mx-auto text-center">
+    <form action="results.html" method="GET">
+      <form>
+        <div class="row ">
+            <div class="col-md-4 form-group">
+              <label for="first">Input Sequences</label>
+              <textarea class="form-control" id="inputSequences" rows="4" placeholder="GAGA, TATA" required></textarea>
+                                                           
+          </div>
+    <select class="custom-select custom-select-lg mb-3">
+    
+      <option selected>Drosophila Melonagaster</option>
+                <option>Drosophila Melanogaster</option>
+                <option>Homo Sapiens</option>
+                <option>Mus Muculus</option>
+                <option>Saccharomyces cerevisae</option>
+                <option>Escherichia coli</option>
+                <option>C. elegans</option>
+                <option>Arabidopsis thaliana</option>
+                <option>Danio rerio</option>
+                <option>C.merolae</option>
+                <option>New Mouse</option>
+                <option>Bombyx mori</option>
+    
+            </select>
+        </div>
+        </div>                                          
+          <!--  col-md-6   -->
+     
+    
+    
+        <div class="row pl-1">
+                  <div class="col-md-2 pl-4 form-group">
+              <label for="last">Window Size</label>
+              <input type="text" class="form-control" placeholder="" id="last">
+            </div> 
+          <div class="col-md-2">
+            <div class="mx-auto form-group">
+              <label for="company">Cluster Size</label>
+              <input type="text" class="form-control" placeholder="" id="company">
+            </div>
+    
+    
+          </div>
+          <!--  col-md-6   -->
+        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox1" value="option1">
+        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox1">5' UTRs</label>
+        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox2">3' UTRs</label>
+    
+          <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+    
+    
+        <div class="row">
+                <div class="col-md-2">
+    
             <div class="form-group">
-            <label for="inputSequences" text-align="center">Input Sequences</label>
-        <textarea class="form-control" id="inputSequences" rows="4" placeholder="GAGA, TATA" required></textarea>
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Please fill out this field.</div>
+              <label for="phone">Limit Search To Chromosome</label>
+              <input type="tel" class="form-control" id="phone" placeholder="phone">
+            </div>
+          </div>
+          <div class="col-md-2">
+    
+            <div class="form-group">
+              <label for="email">Gene Name</label>
+              <input type="email" class="form-control" id="email" placeholder="email">
+            </div>
+          </div>
+              <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox3" value="option3">
+        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox3">Introns</label>
+        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox4" value="option4">
+        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox4">Exons</label>
+        <input class="form-check-input ml-4 mr-4" type="checkbox" id="inlineCheckbox5" value="option5">
+        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox5">Integenic</label>
+          <!--  col-md-6   -->
+          </div>
+          <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+        <div class="submit text-center my-2">
+          <a href="https://markstein-lab.github.io/mermer-frontend/results.html" class="btn btn-danger" >Submit</a>
+            </div>
+      </form>
     </div>
-    </div>    
-    <br>
-    <header>
-        <h5 align="center">Model Organisms</h5>
-    </header>
 
-    <div class="model-organims text-center">
-        <select multiple class="model" id="modelorganisms" required>
-            <option>Drosophila Melanogaster</option>
-            <option>Homo Sapiens</option>
-            <option>Mus Muculus</option>
-            <option>Saccharomyces cerevisae</option>
-            <option>Escherichia coli</option>
-            <option>C. elegans</option>
-            <option>Arabidopsis thaliana</option>
-            <option>Danio rerio</option>
-            <option>C.merolae</option>
-            <option>New Mouse</option>
-            <option>Bombyx mori</option>
-
-        </select>
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Please choose a model organism.</div>
-      </div>
-    </form>
-    <br><br>
-    <div class="row mx-auto text-center">
-        <div class="form-check form-check-inline">
-        <div class="col col-sm-2 ml-5 text-center">
-            <label for="cluster">Cluster Size</label>
-          <input type="text" id="cluster" class="form-control .form-control-sm" placeholder="at least __ binding sites">
-        </div>
-        <div class="col col-sm-2 mr-5 text-center">
-            <label for="Window">Window Size</label>
-          <input type="text" id="Window" class="form-control .form-control-sm" placeholder="within __ base pairs">
-        </div>
-        </div>
-      </div>
-    <div class="dropdown text-center my-auto">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Search Restrictions
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <div class="form form-check text-center">
-    <div class="form-check form-check-inline">
-    <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox1" value="option1">
-    <label class="form-check-label ml-4 mr-4" for="inlineCheckbox1">5' UTRs</label>
-    <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox2" value="option2">
-    <label class="form-check-label ml-4 mr-4" for="inlineCheckbox2">3' UTRs</label>
-<br />
-<br>
-</div>
-<br />
-<br>
-<div class="form-check form-check-inline">
-    <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox3" value="option3">
-    <label class="form-check-label ml-4 mr-4" for="inlineCheckbox3">Introns</label>
-    <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox4" value="option4">
-    <label class="form-check-label ml-4 mr-4" for="inlineCheckbox4">Exons</label>
-    <input class="form-check-input ml-4 mr-4" type="checkbox" id="inlineCheckbox5" value="option5">
-    <label class="form-check-label ml-4 mr-4" for="inlineCheckbox5">Integenic</label>
-</div>
-</div>
-</div>
-</div>
-<div class="submit text-center my-2">
-    <a href="https://markstein-lab.github.io/mermer-frontend/results.html" class="btn btn-danger" formdata()>Submit</a>
-    </div>
 </body>
 <script>
-    function formdata() 
-{
+    function onClick() {
+      sessionStorage.setItem('seq', "inputSequences");
+      console.log(document.getElementById("inputSequences").value);
+    }
+    
     var inputID = document.getElementById('inputSequences');
     console.log(inputID);
-}
+
     (function() {
   'use strict';
   window.addEventListener('load', function() {

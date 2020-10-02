@@ -16,18 +16,34 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         /*TODO: Move to external CSS file, off of html*/
-        #tooltip {
-	opacity: 0;
-	position: fixed;			
-	text-align: left;				
-	padding: 5px;				
-	font: 14px sans-serif;
-	color:#fff;		
-	background: #333;	
-	border: 0px;		
-	border-radius: 2px;			
-	pointer-events: none;
-	z-index: 1099;
+        .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
         .wrapper {
             display: flex;
@@ -178,40 +194,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
       </nav>
     <div class="wrapper">
                <!-- Sidebar -->
-     <nav id="sidebar">
-            <div class="sidebar-header">
-                
-                <div class="logo">
-                    <a href="#"><img src="http://marksteinlab.org/wp-content/uploads/2015/06/Open-Fly-Community-Resource_Placeholder.jpg" class="img-fluid flex-center"></a> 
-                  </div>
-                  <h1>merMER</h1>
-            </div>
-    
-            <ul class="list-unstyled components"> 
-                <li class="active">
-                    <p>Home</p>
-                </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">IUPAC Codes</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>A   Adenine</li>
-                        <li>C   Cytosine</li>
-                        <li>G   Guanine</li>
-                        <li>T   Thymine</li>
-                        <li>U   Uracil</li>
-                        <li>B = C|T|U|G = ~A</li>
-                        <li>D = A|T|U|G = ~C</li>
-                        <li>H = A|T|U|C = ~G</li>
-                        <li>K = T|U|G</li>
-                        <li>M = C|A</li>
-                        <li>N = A|C|G|T|U</li>
-                        <li>R = A|G</li>
-                        <li>S = C|G</li>
-                        <li>V = A|C|G = ~(T|U)</li>
-                        <li>W = T|U|A</li>
-                        <li>Y = C|T|U</li>
-                    </ul>
-                </li>
+ 
 
                 <!-- <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Restrictions</a>
@@ -239,7 +222,6 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                           </ul>
                                           </li>
                                           </ul> -->
-                                          </ul></nav>
                     <!-- All result content -->
                     <div id="content">
                                 <!-- Toggle -->
@@ -265,6 +247,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 
                                             
                                             <br>
+                                            
                                            <div id="myData">
                                                <h5> Summary Table</h5>
                                                 <table>
@@ -282,7 +265,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                                 <div style="text-indent: 20px;">Intergenic</div>
                                                 <svg width="1000" height="150" style="border: 3px solid; margin-left: 20px;"><g transform="translate(0, 0)"><rect x="10" y="30" rx="10" ry="10" width="5009" height="5" fill="black"></rect><g></g><g></g><g><rect x="313" y="15" width="6" rx="5" ry="5" height="30" fill="green"></rect><text x="300" y="15" font-size="15px" fill="black">CG32091</text><rect x="748" y="15" width="6" rx="5" ry="5" height="30" fill="green"></rect><text x="745" y="15" font-size="15px" fill="black">CNN</text>
                                                     <rect x="25" y="15" rx="5" ry="5" width="290" height="30" fill="black"></rect>
-
+                                               
                                                     <rect x="750" y="15" rx="5" ry="5" width="290" height="30" fill="black"></rect></g><g><rect x="1348" y="15" rx="5" ry="5" width="1358" height="30" fill="black"></rect><rect x="300" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="131" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="361" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="563" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="504" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="606&quot;" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="640" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect><rect x="660" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect><rect x="885" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect><rect x="480" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect><rect x="650" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect></g></g><g transform="translate(0, 40)"><rect x="10" y="30" rx="10" ry="10" width="4755" height="5" fill="black"></rect><g></g><g></g><g><rect x="5" y="15" rx="5" ry="5" width="267" height="30" fill="black"></rect><rect x="270" y="15" width="3" rx="5" ry="5" height="30" fill="green"></rect><text x="260" y="15" font-size="15px" fill="black">Gene 3</text>
                                                     <rect x="429" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="431" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="200" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="300" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect></g><g><rect x="680" y="15" rx="5" ry="5" width="437" height="30" fill="black"></rect>
                                                     <rect x="679" y="15" rx="5" ry="5" width="3" height="30" fill="green"></rect><text x="670" y="15" font-size="15px" fill="black">Gene 4</text><rect x="137" y="15" width="3" rx="5" ry="5" height="30" fill="black"></rect><rect x="500" y="15" rx="5" ry="5" width="3" height="30" fill="#E4E4E4"></rect><rect x="200" y="15" width="3" rx="5" ry="5" height="30" fill="#939393"></rect><rect x="334" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect><rect x="700" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect><rect x="765" y="15" width="3" rx="5" ry="5" height="30" fill="#636363"></rect></g></g><rect x="975" y="75" width="15" height="15" rx="3" ry="3" fill="red"></rect></svg>
@@ -363,7 +346,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 </script>
 <script>
     $(document).ready(function () {
-
+console.log(sessionStorage.getItem('seq'));
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
@@ -445,6 +428,20 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
             console.log(clusters + "clus")
             return clusters;
         }
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var sn = getParameterByName('inputSequences');
+console.log(firstname1);
+document.getElementById("write").innerHTML = sn;
 
 </script>
 
