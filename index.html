@@ -210,7 +210,8 @@
                                                            
           </div>
     <select class="custom-select custom-select-lg mb-3">
-    
+      localStorage["key"] = value;
+
       <option selected>Drosophila Melonagaster</option>
                 <option>Drosophila Melanogaster</option>
                 <option>Homo Sapiens</option>
@@ -261,14 +262,14 @@
     
             <div class="form-group">
               <label for="phone">Limit Search To Chromosome</label>
-              <input type="tel" class="form-control" id="phone" placeholder="phone">
+              <input type="tel" class="form-control" id="phone" >
             </div>
           </div>
           <div class="col-md-2">
     
             <div class="form-group">
               <label for="email">Gene Name</label>
-              <input type="email" class="form-control" id="email" placeholder="email">
+              <input type="email" class="form-control" id="email">
             </div>
           </div>
           <div class="col-md-2">
@@ -291,6 +292,10 @@
     </div>
 
 </body>
+<script>
+  localStorage["key"] = 12;
+  console.log(localStorage["key"]);
+</script>
 <script>
     function onClick() {
       sessionStorage.setItem('seq', "inputSequences");
