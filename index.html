@@ -220,99 +220,51 @@ button:focus {
 </head>
 </nav> 
 <body>
-    <form action="results.html" method="GET">
-      <form>
-        <div class="row ">
-            <div class="col-md-4 form-group">
-              <label for="first">Input Sequences</label>
-              <textarea class="form-control" id="inputSequences" rows="4" placeholder="GAGA, TATA" required></textarea>
-                                                           
-          </div>
-    <select class="custom-select custom-select-lg mb-3">
+<form action="" method="post">
+<textarea wrap="physical" cols="20" name="quote" rows="5">Enter sequnces</textarea><br/>
+First Name:<input type="text" name="Fname" maxlength="12" size="12"/> <br/>
+Last Name:<input type="text" name="Lname" maxlength="36" size="12"/> <br/>
+Search Restrictions:<br/>
+5' UTRS:<input type="checkbox" name="searchR[]" value="5'UTRs"/><br/>
+3' UTRS:<input type="checkbox" name="searchR[]" value="3'UTRs"/><br/>
 
-      <option selected>Drosophila Melonagaster</option>
-                <option>Drosophila Melanogaster</option>
-                <option>Homo Sapiens</option>
-                <option>Mus Muculus</option>
-                <option>Saccharomyces cerevisae</option>
-                <option>Escherichia coli</option>
-                <option>C. elegans</option>
-                <option>Arabidopsis thaliana</option>
-                <option>Danio rerio</option>
-                <option>C.merolae</option>
-                <option>New Mouse</option>
-                <option>Bombyx mori</option>
-    
-            </select>
-        </div>
-        </div>                                          
-          <!--  col-md-6   -->
-     
-    
-    
-        <div class="row pl-1">
-                  <div class="col-md-2 pl-4 form-group">
-              <label for="last">Window Size</label>
-              <input type="text" class="form-control" placeholder="" id="last">
-            </div> 
-          <div class="col-md-2">
-            <div class="mx-auto form-group">
-              <label for="company">Cluster Size</label>
-              <input type="text" class="form-control" placeholder="" id="company">
-            </div>
-    
-    
-          </div>
-          <!--  col-md-6   -->
-          <div class="col-md-6">
-        <input class="form-check-input mr-4 ml-4" type="checkbox" style="margin-right: 20px" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label ml-4 mr-4" style="margin-right: 20px"  for="inlineCheckbox1">5' UTRs</label>
-        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label ml-4 mr-4" style="margin-right: 10px" for="inlineCheckbox2">3' UTRs</label>
-      </div>
-          <!--  col-md-6   -->
-        </div>
-        <!--  row   -->
-    
-    
-        <div class="row">
-                <div class="col-md-2">
-    
-            <div class="form-group">
-              <label for="phone">Limit Search To Chromosome</label>
-              <input type="tel" class="form-control" id="phone" >
-            </div>
-          </div>
-          <div class="col-md-2">
-    
-            <div class="form-group">
-              <label for="email">Gene Name</label>
-              <input type="email" class="form-control" id="email">
-            </div>
-          </div>
-          <div class="col-md-2">
-        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox3" value="option3">
-        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox3">Introns</label>
-        <input class="form-check-input mr-4 ml-4" type="checkbox" id="inlineCheckbox4" value="option4">
-        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox4">Exons</label>
-        <input class="form-check-input ml-4 mr-4" type="checkbox" id="inlineCheckbox5" value="option5">
-        <label class="form-check-label ml-4 mr-4" for="inlineCheckbox5">Integenic</label>
-      </div>
-          <!--  col-md-6   -->
-          </div>
-          <!--  col-md-6   -->
-        </div>
-        <!--  row   -->
-        <div class="submit text-center my-2">
-          <a href="https://markstein-lab.github.io/mermer-frontend/results.html" class="btn btn-danger" >Submit</a>
-            </div>
-      </form>
-    </div>
+Select a Model Organism:<br/>
+<select name="modelOrganism">
+<option value="Drosophila">Drosophila Melanogaster</option>
+<option value="Homo">Homo Sapiens</option>
+<option value="Mus">Muculus</option></select><br/>
+<a href="https://ide.geeksforgeeks.org/">
+<p><a href="https://ide.geeksforgeeks.org/" input type="submit" /></p>
+</a>
 
+</form>
 </body>
 <script>
-  localStorage["key"] = 12;
-  console.log(localStorage["key"]);
+(function ($) {
+    $.fn.serializeFormJSON = function () {
+
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+})(jQuery);
+
+$('form').submit(function (e) {
+    e.preventDefault();
+    var data = $(this).serializeFormJSON();
+    console.log(data);
+    localStorage.setItem("json", JSON.stringify(data));
+});
 </script>
 <script>
     function onClick() {

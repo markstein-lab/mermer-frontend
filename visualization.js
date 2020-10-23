@@ -1,7 +1,8 @@
 function name (geneN) {
   console.log("the name is" +geneN);
 }
-function hi(temp,hit) {
+function hi(temp,hit,query) {
+  
       var mainContainer = document.getElementById('results');
     var div2 = document.createElement("div")
 
@@ -10,10 +11,6 @@ function hi(temp,hit) {
     div.innerHTML = 'Gene Name: ' + (temp.geneName) ;
     mainContainer.appendChild(div);
     var ABCB7 = temp;
-    var query1 = ["GAGA","GAGG","GCGA","GCGG"];
-    var query2 = "ACA";
-    var query3 = ["ACC","ACT","ACU","GCC","GCT","GCU"]
-    console.log(hit.sequence+ "hit seq");
     var sequence = hit.sequence;
     var canva= d3.select('#results').append('svg')
         .attr('width',1000)
@@ -104,7 +101,7 @@ function hi(temp,hit) {
   .attr("height",30)
   .attr("fill", "green");
 
-      var indi = count2(query2);
+      var indi = query;
       console.log("indi" + indi + hit.chromosome);
     for(var j=0;j<indi.length;j++) {
     var clustexon = exons.append('rect')
@@ -117,14 +114,14 @@ function hi(temp,hit) {
     .attr("height",5)
     .attr("fill", "#E4E4E4");
     }
-    var clus2 =[];
+/*     var clus2 =[];
     for (var i=0;i<query1.length;i++){
       var clus2 = clus2.concat(count2(query1[i]));
-    }
+    } */
 
-    for(var j=0;j<clus2.length;j++) {
+    for(var j=0;j<indi.length;j++) {
       var clustexon = exons.append('rect')
-      .attr("x", (clus2[j]+200))
+      .attr("x", (indi[j]+200))
       .attr("y",30)
       .attr("width", 3
       )
@@ -137,9 +134,9 @@ function hi(temp,hit) {
     for (var i=0; i<query3.length;i++) {
       var clus3=clus3.concat(count2(query3[i]));
     }
-    for(var j=0;j<clus3.length;j++) {
+    for(var j=0;j<indi.length;j++) {
       var clustexon1 = exons.append('rect')
-      .attr("x", (clus3[j] * 5))
+      .attr("x", (indi[j] * 5))
       .attr("y",30)
       .attr("width", 3
       )

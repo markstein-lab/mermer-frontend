@@ -8,11 +8,11 @@
     <!-- Bootstrap CSS DONT TOUCH -->
     <link rel="stylesheet" href="/fonts/fontawesome-free-5.3.1-web/css/all.css">
     <script src="https://kit.fontawesome.com/9edcac586f.js" crossorigin="anonymous"></script><link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" rel="stylesheet"><link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all" rel="stylesheet"><link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" varegrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <!-- For sidebar + icons-->
-    <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer="" href="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" varegrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer="" href="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" varegrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         /*TODO: Move to external CSS file, off of html*/
@@ -160,13 +160,17 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
     </style>
      <script src="visualization.js"></script>
      <script>
-                                                             value = localStorage["key"];
-                                            console.log(value);
+        arrLinks =JSON.parse(localStorage.getItem("json"));
+        console.log(arrLinks);
+        str = arrLinks["quote"];
+        str.toString();
+        var res = str.split(",");
+        console.log(res);
      </script>
     <script src="https://d3js.org/d3.v5.min.js"></script> 
-    <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-<link rel="stylesheet" id="coToolbarStyle" href="chrome-extension://cjabmdjcfcfdmffimndhafhblfmpjdpe/toolbar/styles/placeholder.css" type="text/css"><script type="text/javascript" id="cosymantecbfw_removeToolbar">(function () {				var toolbarElement = {},					parent = {},					interval = 0,					retryCount = 0,					isRemoved = false;				if (window.location.protocol === 'file:') {					interval = window.setInterval(function () {						toolbarElement = document.getElementById('coFrameDiv');						if (toolbarElement) {							parent = toolbarElement.parentNode;							if (parent) {								parent.removeChild(toolbarElement);								isRemoved = true;								if (document.body && document.body.style) {									document.body.style.setProperty('margin-top', '0px', 'important');								}							}						}						retryCount += 1;						if (retryCount > 10 || isRemoved) {							window.clearInterval(interval);						}					}, 10);				}			})();</script></head>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" varegrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" varegrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+<link rel="stylesheet" id="coToolbarStyle" href="chrome-extension://cjabmdjcfcfdmffimndhafhblfmpjdpe/toolbar/styles/placeholder.css" type="text/css"><script type="text/javascript" id="cosymantecbfw_removeToolbar">(function () {				var toolbarElement = {},					parent = {},					varerval = 0,					retryCount = 0,					isRemoved = false;				if (window.location.protocol === 'file:') {					varerval = window.setInterval(function () {						toolbarElement = document.getElementById('coFrameDiv');						if (toolbarElement) {							parent = toolbarElement.parentNode;							if (parent) {								parent.removeChild(toolbarElement);								isRemoved = true;								if (document.body && document.body.style) {									document.body.style.setProperty('margin-top', '0px', 'important');								}							}						}						retryCount += 1;						if (retryCount > 10 || isRemoved) {							window.clearInterval(varerval);						}					}, 10);				}			})();</script></head>
 
 <body style="background-color:white">
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark" style="background-color:#4E4F50">
@@ -219,8 +223,8 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                                     <input type="checkbox" name="Intron" checked>
                                                     <label for="Intron"> Intron</label>
                                                     <br>
-                                                    <input type="checkbox" name="intergenic" checked>
-                                                    <label for="intergenic">Intergenic</label>
+                                                    <input type="checkbox" name="varergenic" checked>
+                                                    <label for="varergenic">Intergenic</label>
                                                     <br><br>
                                           </ul>
                                           </ul>
@@ -252,20 +256,20 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                             
                                             <br>
                                             
-                                           <div id="myData">
-                                               <h5> Summary Table</h5>
-                                                <table>
-                                                    <tbody><tr>
-                                                        <th>Query</th>
-                                                        <th>Chromosome Number</th>
-                                                        <th>Cluster</th>
-                                                    </tr>
-                                                <tr><td>GMGR</td><td>chr3L, chr3R</td><td>9</td></tr><tr><td>ACA</td><td>chr3L, chr3R</td><td>7</td></tr><tr><td>RYS</td><td>chr3L, chr3R</td><td>31</td></tr></tbody></table>
-                                            <div></div></div> 
+                                            <div id="myData">
+                                                <h5> Summary Table</h5>
+                                                 <table>
+                                                     <tr>
+                                                         <th>Query</th>
+                                                         <th>Chromosome Number</th>
+                                                         <th>Cluster</th>
+                                                     </tr>
+                                                 </table>
+                                             </div>
                                             <br><br>
                                             <div id="results">
                                             <h5>Results</h5>
-                                                                                        <div id="intergenic">
+                                                                                        <div id="varergenic">
                                                 <div style="text-indent: 20px;">Intergenic</div>
                                                 <svg width="1000" height="150" style="border: 3px solid; margin-left: 20px;"><g transform="translate(0, 0)"><rect x="10" y="30" rx="10" ry="10" width="5009" height="5" fill="black"></rect><g></g><g></g><g><rect x="313" y="15" width="6" rx="5" ry="5" height="30" fill="green"></rect><text x="300" y="15" font-size="15px" fill="black">CG32091</text><rect x="748" y="15" width="6" rx="5" ry="5" height="30" fill="green"></rect><text x="745" y="15" font-size="15px" fill="black">CNN</text>
                                                     <rect x="25" y="15" rx="5" ry="5" width="290" height="30" fill="black"></rect>
@@ -305,11 +309,11 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
                                     </div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" varegrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" varegrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" varegrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 <!-- Code injected by live-server -->
 <script type="text/javascript">
@@ -375,7 +379,7 @@ console.log(sessionStorage.getItem('seq'));
             var div2 = document.createTextNode("div")
             for (var i=0;i<2;i++) {
                 
-                div= hi(data.gene[i],data.hits[i]);
+                div= hi(data.gene[i],data.hits[i],clus());
                 div2 =data.gene[i].geneName;
                 console.log(data.gene[i]);
             }
@@ -386,6 +390,40 @@ console.log(sessionStorage.getItem('seq'));
         function mouseOver() {
             console.log("hihello");
 }
+var sequence = "CCATGCGAATGCTGATATCGTAGCAAAAACACAGGGACGGTGCGAAAGAAGAGGGATTTTATTTTGTTTTCGCCTGGCAATTGAGTAATGGCCGGACTCCTTCACCTGACCAAGCAGTGCAGCATCCACCTACCCGCCCACTTGGGACGCGCGAAATGCTACACACTCGCTAAGGGACCGGGAACACACGTGCAGGCAAGAGTG";
+function clus(){
+    var clus2 =[];
+    for (var i=0;i<res.length;i++){
+      var clus2 = clus2.concat(count2(res[i])+(i*150));
+    }
+    console.log(clus2);
+        return clus2
+}
+function count2(qu) {
+        var M = 3     
+        var N = sequence.length;        
+        var count = 0;
+ 
+        /* A loop to slide pat[] one by one */
+        for (var i = 0; i <= N - M; i++) {
+            /* For current index i, check for 
+        pattern match */
+            var j;            
+            for (j = 0; j < M; j++) {
+                if (sequence.charAt(i + j) !=qu.charAt(j)) {
+                    break;
+                }
+            }
+ 
+            // if pat[0...M-1] = txt[i, i+1, ...i+M-1] 
+            if (j == M) {                
+                count++;                
+                j = 0;                
+            }            
+        }        
+        return count;        
+    }
+
         function appendTable(data) {
             var mainContainer = document.getElementById("myData");
             
@@ -397,11 +435,11 @@ console.log(sessionStorage.getItem('seq'));
             mainContainer.appendChild(div);           
             var tr;
             console.log(data.query);
-            var cluster = [9,7,31];
-        for(var k=0; k<data.query.length ;k++) {
+            var cluster = clus();
+        for(var k=0; k<res.length ;k++) {
         for (var i = 0; i <1; i++) {
             tr = $('<tr/>');
-            tr.append("<td>" + data.query[k] + "</td>");
+            tr.append("<td>" + res[k] + "</td>");
             tr.append("<td>" + hit[0].chromosome  + ", " + hit[1].chromosome + "</td>");
             tr.append("<td>"+ cluster[k] + "</td>")
             i++;
